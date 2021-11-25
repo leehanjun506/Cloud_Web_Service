@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨어플</title>
+    <style>
+        body{
+            margin: 0px;
+            height: 100vh;
+            background-image:url(./날씨배경.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #clock{
+            position : relative;
+            left : 50px;
+            top : 40px;
+        }
+        #text1{
+            position: relative;
+            text-align: center;
+        }
+
+        button{
+            margin: auto;
+            margin-top: 200px;
+            background:#1AAB8A;
+            color:#fff;
+            border:none;
+            position:relative;
+            height:60px;
+            font-size:1.6em;
+            padding:0 2em;
+            cursor:pointer;
+            transition:800ms ease all;
+            outline:none;
+          }
+        button:hover{
+            background:#fff;
+            color:#1AAB8A;
+          }
+        button:before,button:after{
+            content:'';
+            position:absolute;
+            top:0;
+            right:0;
+            height:2px;
+            width:0;
+            background: #1AAB8A;
+            transition:400ms ease all;
+          }
+        button:after{
+            right:inherit;
+            top:inherit;
+            left:0;
+            bottom:0;
+          }
+        button:hover:before,button:hover:after{
+            width:100%;
+            transition:800ms ease all;
+          }
+        
+
+        div.left{
+            width: 60%;
+            height: 100vh;
+            float:left;
+        }
+        div.right{
+            width: 40%;
+            height: 100vh;
+            float:right;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        .current{
+            font-size: 30px;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>
+        <div class="left">
+            <div class="current" >
+                <h1 class="location">  </h1>
+                <div class="current-time">현재 시간 : </div>
+                <div class="current-temp">현재 온도 : </div>
+                <div class="feels-like">체감온도 : </div>
+                <div class="max-temp"></div>
+                <div class="min-temp"></div>
+                <div class="icon"></div>
+            </div>
+            
+                
+        </div>
+        <div class="right">
+            <h4 id="text1">원하는 지역의 날씨를 선택해주세요.</h4>
+            <select id="location" onchange="select_value(this)" size="3" 
+            style="background-color: transparent; color:white; width:300px; margin-left: 170px;   " >
+                    <option value="seoul" style="background: transparent;">서울</option>
+                    <option value="da" style="background: transparent;">대구</option>
+                    <option value="chinese" style="background: transparent;">부산</option>
+                    <option value="spanish" style="background: transparent;">경기도</option>
+            </select>
+
+            <button type="button">원하는 국립공원의 미세먼지를 예측해주세요
+            </button> 
+            <select id="location2" onchange="select_value2(this)" size="5" 
+            style="background-color: transparent; color:white; width:300px; margin-left: 170px; margin-top:20px  " >
+                    <option value="함양군" style="background: transparent;">지리산국립공원</option>
+                    <option value="경주시" style="background: transparent;">경주국립공원</option>
+                    <option value="대전" style="background: transparent;">계룡산국립공원</option>
+                    <option value=295 style="background: transparent;">한려해상국립공원</option>
+            </select>
+
+           
+        </div>
+
+
+
+    <script>
+        
+    </script>
+
+    <script>
+        var select_value2 = function(select_obj){
+            var selected_index = select_obj.selectedIndex;
+            var selected_value = select_obj.options[selected_index].value;
+            alert(selected_value+'국립공원');
+        }
+    </script>
+
+
+    
+    <script src="./currentweather.js"></script>
+</body>
+</html>
